@@ -15,6 +15,7 @@ Live-tested with Postman.
   - `GET /event/{id}` → Lambda
 - **IAM (least privilege)**: Lambda role allowed to `GetItem`, `Query`, `Scan`, `DescribeTable` on that one table only
 
+<<<<<<< HEAD
 ## Lambda handler (Python)
 `src/handler.py`:
 ```py
@@ -65,3 +66,18 @@ def get_event(event_id):
     if not item:
         return _resp(404, {"ok": False, "message": f"Event '{event_id}' not found"})
     return _resp(200, {"ok": True, "item": item})
+
+## Testing
+Use the Postman collection in `postman/olympus-events.postman_collection.json`.
+Set `baseUrl` to your API Gateway base URL.
+**Base URL (eu-central-1)**  
+`https://cspklka3i3.execute-api.eu-central-1.amazonaws.com`
+
+### Quick test
+```bash
+# all events
+curl https://cspklka3i3.execute-api.eu-central-1.amazonaws.com/events
+
+# single event
+curl https://cspklka3i3.execute-api.eu-central-1.amazonaws.com/event/e3
+ a8b819d (docs: finalize README (base URL + curl); add handler + Postman collection)
