@@ -15,7 +15,7 @@ Live-tested with Postman.
   - `GET /event/{id}` → Lambda
 - **IAM (least privilege)**: Lambda role allowed to `GetItem`, `Query`, `Scan`, `DescribeTable` on that one table only
 
-<<<<<<< HEAD
+ HEAD
 ## Lambda handler (Python)
 `src/handler.py`:
 ```py
