@@ -1,0 +1,21 @@
+{
+  "info": {
+    "name": "Olympus Events API",
+    "_postman_id": "00000000-0000-4000-8000-aaaaaaaaaaaa",
+    "description": "Simple collection for Olympus Events API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "List events",
+      "request": { "method": "GET", "url": "{{baseUrl}}/events" }
+    },
+    {
+      "name": "Get event e3",
+      "request": { "method": "GET", "url": "{{baseUrl}}/event/e3" }
+    }
+  ],
+  "variable": [
+    { "key": "baseUrl", "value": "YOUR_BASE_URL_HERE" }
+  ]
+}
