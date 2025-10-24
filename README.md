@@ -17,3 +17,13 @@ Live-tested with **Postman**.
 - `GET /event/{id}` — get a single event (e.g. `e3`)
 
 **Base URL (eu-central-1)**  
+## Testing
+
+### With curl (any shell)
+```bash
+# list all events
+curl https://cspklka3i3.execute-api.eu-central-1.amazonaws.com/events
+
+# single event
+curl https://cspklka3i3.execute-api.eu-central-1.amazonaws.com/event/e3
+
