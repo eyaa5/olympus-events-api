@@ -30,3 +30,14 @@ curl https://cspklka3i3.execute-api.eu-central-1.amazonaws.com/events
 
 # single event
 curl https://cspklka3i3.execute-api.eu-central-1.amazonaws.com/event/e3
+### With PowerShell (pretty JSON)
+
+```powershell
+# list all events (pretty)
+Invoke-RestMethod 'https://cspklka3i3.execute-api.eu-central-1.amazonaws.com/events' |
+  ConvertTo-Json -Depth 10
+
+# single event (pretty)
+Invoke-RestMethod 'https://cspklka3i3.execute-api.eu-central-1.amazonaws.com/event/e3' |
+  ConvertTo-Json -Depth 10
+
