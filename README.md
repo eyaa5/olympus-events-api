@@ -16,17 +16,18 @@ Live-tested with **Postman**.
 - `GET /events` — list all events
 - `GET /event/{id}` — get a single event (e.g. `e3`)
 
-**Base URL (eu-central-1)**  
+**Base URL (eu-central-1):**  
 `https://cspklka3i3.execute-api.eu-central-1.amazonaws.com`
 
 ---
 
-## Testing
+## Quick start
 
-### With curl (any shell)
 ```bash
-# list all events
-curl https://cspklka3i3.execute-api.eu-central-1.amazonaws.com/events
+# 1) clone
+git clone https://github.com/eyaa5/olympus-events-api.git
+cd olympus-events-api
 
-# single event
+# 2) test the live API
+curl https://cspklka3i3.execute-api.eu-central-1.amazonaws.com/events
 curl https://cspklka3i3.execute-api.eu-central-1.amazonaws.com/event/e3
