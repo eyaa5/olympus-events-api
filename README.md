@@ -1,4 +1,6 @@
 # Olympus Events API (Serverless on AWS)
+[![CI](https://github.com/eyaa5/olympus-events-api/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/eyaa5/olympus-events-api/actions/workflows/ci.yml)
+
 
 ![AWS Lambda](https://img.shields.io/badge/AWS-Lambda-orange)
 ![API Gateway](https://img.shields.io/badge/AWS-API%20Gateway-yellow)
