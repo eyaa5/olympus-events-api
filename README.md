@@ -7,27 +7,20 @@
 ![License: MIT](https://img.shields.io/badge/License-MIT-green)
 
 A tiny, production-style serverless API that reads events from **DynamoDB** via **AWS Lambda** behind **API Gateway (HTTP API)**.  
-Live-tested with **Postman**.
+Live-tested with **Postman** and **curl**.
 
 ---
 
-## Endpoints
-
-- `GET /events` — list all events
-- `GET /event/{id}` — get a single event (e.g. `e3`)
-
-**Base URL (eu-central-1):**  
-`https://cspklka3i3.execute-api.eu-central-1.amazonaws.com`
+## What’s included
+- **Lambda** handler in `src/handler.py` (Python 3.x, JSON, CORS).
+- **DynamoDB** table: `olympus_events` (PK: `id`).
+- **API Gateway (HTTP API)** routes:
+  - `GET /events` — list events (supports `?limit=...`)
+  - `GET /event/{id}` — get one event (e.g. `e3`)
+- **Postman** collection in `postman/olympus-events.postman_collection.json`.
+- Minimal **IAM** least-privilege policy snippet (below).
 
 ---
 
-## Quick start
+## Base URL (eu-central-1)
 
-```bash
-# 1) clone
-git clone https://github.com/eyaa5/olympus-events-api.git
-cd olympus-events-api
-
-# 2) test the live API
-curl https://cspklka3i3.execute-api.eu-central-1.amazonaws.com/events
-curl https://cspklka3i3.execute-api.eu-central-1.amazonaws.com/event/e3
