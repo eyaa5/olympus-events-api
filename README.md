@@ -34,3 +34,37 @@ curl https://cspklka3i3.execute-api.eu-central-1.amazonaws.com/event/e3
 
 # health
 curl https://cspklka3i3.execute-api.eu-central-1.amazonaws.com/health
+
+name: CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt || true
+          pip install -r requirements-dev.txt || true
+          pip install pytest flake8
+
+      - name: Lint
+        run: flake8
+
+      - name: Test
+        run: pytest -q
+
