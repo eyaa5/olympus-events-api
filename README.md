@@ -1,5 +1,4 @@
 # Olympus Events API (Serverless on AWS)
-[![CI](https://github.com/eyaa5/olympus-events-api/actions/workflows/ci.yml/badge.svg)](https://github.com/eyaa5/olympus-events-api/actions/workflows/ci.yml)
 
 
 ![AWS Lambda](https://img.shields.io/badge/AWS-Lambda-orange)
@@ -7,7 +6,7 @@
 ![DynamoDB](https://img.shields.io/badge/AWS-DynamoDB-blue)
 ![Made with Python](https://img.shields.io/badge/Python-3.11-informational)
 ![License: MIT](https://img.shields.io/badge/License-MIT-green)
-![CI](https://github.com/eyaa5/olympus-events-api/actions/workflows/ci.yml/badge.svg)
+[![CI](https://github.com/eyaa5/olympus-events-api/actions/workflows/ci.yml/badge.svg)](https://github.com/eyaa5/olympus-events-api/actions/workflows/ci.yml)
 
 A tiny, production-style serverless API that reads events from **DynamoDB** via **AWS Lambda** behind **API Gateway (HTTP API)**.  
 Includes IaC (AWS SAM), least-privilege IAM, CI, tests, and a Postman collection.
@@ -34,37 +33,3 @@ curl https://cspklka3i3.execute-api.eu-central-1.amazonaws.com/event/e3
 
 # health
 curl https://cspklka3i3.execute-api.eu-central-1.amazonaws.com/health
-
-name: CI
-
-on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-
-jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
-
-      - name: Install deps
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt || true
-          pip install -r requirements-dev.txt || true
-          pip install pytest flake8
-
-      - name: Lint
-        run: flake8
-
-      - name: Test
-        run: pytest -q
-
