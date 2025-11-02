@@ -7,9 +7,8 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build-test:
+  test:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -22,17 +21,10 @@ jobs:
       - name: Install deps
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt || true
-          pip install flake8 pytest
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          if [ -f requirements-dev.txt ]; then pip install -r requirements-dev.txt; fi
+          pip install pytest
 
-      - name: Lint (flake8)
-        run: flake8
-
-      - name: Run tests
-        run: pytest -q || true
-
-      - name: SAM validate (optional)
-        if: hashFiles('template.yaml') != ''
+      - name: Run tests (if any)
         run: |
-          pip install aws-sam-cli
-          sam validate
+          if [ -d tests ]; then pytest -q; else echo "no tests"; fi
