@@ -18,25 +18,50 @@ def _json_default(o):
     return str(o)
 
 def _resp(code, body):
-    return {"statusCode": code, "headers": {**CORS, "Content-Type": "application/json"},
-            "body": json.dumps(body, default=_json_default)}
+    return {
+        "statusCode": code,
+        "headers": {**CORS, "Content-Type": "application/json"},
+        "body": json.dumps(body, default=_json_default),
+    }
 
 def lambda_handler(event, context):
+    # HTTP API (payload v2.0): 'rawPath'; REST API (v1) uses 'path'
     path = (event.get("rawPath") or event.get("path") or "/").strip()
+
+    # NEW: health check
+    if path == "/health":
+        return _resp(200, {"ok": True})
+
+    # NEW: friendly index
+    if path == "/":
+        return _resp(200, {
+            "ok": True,
+            "hint": "Try /events, /event/e3, or /health",
+            "endpoints": ["/events", "/event/{id}", "/health"]
+        })
+
+    # existing routes
     if path == "/events":
         return list_events(event)
+
     if path.startswith("/event/"):
-        return get_event(path.split("/event/", 1)[1])
+        event_id = path.split("/event/", 1)[1]
+        return get_event(event_id)
+
     return _resp(404, {"ok": False, "message": "Not Found"})
 
 def list_events(event):
     params = event.get("queryStringParameters") or {}
     limit = int(params.get("limit", "100"))
+
     resp = table.scan(Limit=limit)
     items = resp.get("Items", [])
+
     out = {"ok": True, "count": len(items), "items": items}
     lek = resp.get("LastEvaluatedKey")
-    if lek: out["nextToken"] = json.dumps(lek, default=_json_default)
+    if lek:
+        out["nextToken"] = json.dumps(lek, default=_json_default)
+
     return _resp(200, out)
 
 def get_event(event_id):
