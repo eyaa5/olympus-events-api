@@ -101,3 +101,11 @@ curl https://cspklka3i3.execute-api.eu-central-1.amazonaws.com/event/e3
 
 # health
 curl https://cspklka3i3.execute-api.eu-central-1.amazonaws.com/health
+
+## 📊 Monitoring & Logging
+
+- AWS CloudWatch can be used to monitor Lambda execution  
+- Logs help identify errors and debug issues  
+- Metrics can be used to track API performance and failures  
+
+This is essential for production-level cloud applications and support engineering.
