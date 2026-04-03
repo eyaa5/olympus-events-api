@@ -1,4 +1,4 @@
-# Olympus Events API (Serverless on AWS)
+# AWS Serverless Events API – Production-Ready Backend (Lambda, API Gateway, DynamoDB)
 
 ![AWS Lambda](https://img.shields.io/badge/AWS-Lambda-orange)
 ![API Gateway](https://img.shields.io/badge/AWS-API%20Gateway-yellow)
