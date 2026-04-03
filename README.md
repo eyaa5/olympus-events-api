@@ -9,6 +9,8 @@
 A production-style serverless REST API built on AWS using API Gateway, Lambda, and DynamoDB.  
 This project demonstrates scalable backend architecture and cloud-based API development.
 
+---
+
 ## 🧠 System Architecture
 
 Client → API Gateway → AWS Lambda → DynamoDB
@@ -17,11 +19,7 @@ Client → API Gateway → AWS Lambda → DynamoDB
 - Lambda processes the logic  
 - DynamoDB stores event data  
 
-
-
-
-
-
+---
 
 ## 🛠️ Troubleshooting & Debugging
 
@@ -41,6 +39,7 @@ Client → API Gateway → AWS Lambda → DynamoDB
 - Cause: IAM role missing permissions  
 - Fix: Added DynamoDB permissions  
 
+---
 
 ## 💡 What I Learned
 
@@ -50,6 +49,7 @@ Client → API Gateway → AWS Lambda → DynamoDB
 - How to debug cloud applications  
 - Importance of IAM roles  
 
+---
 
 ## 🚀 Future Improvements
 
@@ -58,39 +58,42 @@ Client → API Gateway → AWS Lambda → DynamoDB
 - Improve error handling  
 - Add filtering and pagination  
 - Use Infrastructure as Code (Terraform or SAM)  
+
 ---
 
-## Architecture
+## 🏗️ Architecture Details
 
-- **DynamoDB**: table `olympus_events` (PK: `id`)
-- **Lambda**: `olympus-read-events`
+- **DynamoDB**: table `olympus_events` (PK: `id`)  
+- **Lambda**: `olympus-read-events`  
 - **API Gateway (HTTP API)**:  
   - `GET /events` → Lambda  
-  - `GET /event/{id}` → Lambda
+  - `GET /event/{id}` → Lambda  
 
 > Demo CORS is `*` for simplicity. In production, restrict to your allowed origin(s).
 
 ---
 
-## Endpoints
+## 🔗 Endpoints
 
-- `GET /events` — list all events (supports `?limit=`)
-- `GET /event/{id}` — get a single event (e.g., `e3`)
-- `GET /health` — health check (`{ "ok": true }`)
+- `GET /events` — list all events (supports `?limit=`)  
+- `GET /event/{id}` — get a single event (e.g., `e3`)  
+- `GET /health` — health check (`{ "ok": true }`)  
 
+---
 
- ## 🌍 Live API
+## 🌍 Live API
 
 Base URL:  
 https://cspklka3i3.execute-api.eu-central-1.amazonaws.com
 
-Endpoints:
-- GET /events  
-- GET /event/{id}  
-- GET /health  
-`https://cspklka3i3.execute-api.eu-central-1.amazonaws.com`
+Available endpoints:
+- `GET /events`  
+- `GET /event/{id}`  
+- `GET /health`  
 
-### Quick curl test
+---
+
+## ⚡ Quick curl test
 
 ```bash
 # list events
@@ -101,11 +104,3 @@ curl https://cspklka3i3.execute-api.eu-central-1.amazonaws.com/event/e3
 
 # health
 curl https://cspklka3i3.execute-api.eu-central-1.amazonaws.com/health
-
-## 📊 Monitoring & Logging
-
-- AWS CloudWatch can be used to monitor Lambda execution  
-- Logs help identify errors and debug issues  
-- Metrics can be used to track API performance and failures  
-
-This is essential for production-level cloud applications and support engineering.
