@@ -6,6 +6,8 @@
 ![Made with Python](https://img.shields.io/badge/Python-3.11-informational)
 ![License: MIT](https://img.shields.io/badge/License-MIT-green)
 
+🚀 Serverless AWS backend project demonstrating real-world cloud architecture and troubleshooting skills.
+
 A production-style serverless REST API built on AWS using API Gateway, Lambda, and DynamoDB.  
 This project demonstrates scalable backend architecture and cloud-based API development.
 
