@@ -6,14 +6,14 @@
 ![Made with Python](https://img.shields.io/badge/Python-3.11-informational)
 ![License: MIT](https://img.shields.io/badge/License-MIT-green)
 
-🚀 Serverless AWS backend project demonstrating real-world cloud architecture and troubleshooting skills.
+ Serverless AWS backend project demonstrating real-world cloud architecture and troubleshooting skills.
 
 A production-style serverless REST API built on AWS using API Gateway, Lambda, and DynamoDB.  
 This project demonstrates scalable backend architecture and cloud-based API development.
 
 ---
 
-## 🧠 System Architecture
+##  System Architecture
 
 Client → API Gateway → AWS Lambda → DynamoDB
 
@@ -23,7 +23,7 @@ Client → API Gateway → AWS Lambda → DynamoDB
 
 ---
 
-## 🛠️ Troubleshooting & Debugging
+##  Troubleshooting & Debugging
 
 ### Issue: API Gateway not triggering Lambda
 - Cause: Missing integration configuration  
@@ -43,7 +43,7 @@ Client → API Gateway → AWS Lambda → DynamoDB
 
 ---
 
-## 💡 What I Learned
+##  What I Learned
 
 - How to build serverless APIs with AWS  
 - How API Gateway connects to Lambda  
@@ -53,7 +53,7 @@ Client → API Gateway → AWS Lambda → DynamoDB
 
 ---
 
-## 🚀 Future Improvements
+##  Future Improvements
 
 - Add authentication (Cognito)  
 - Add logging with CloudWatch  
@@ -63,7 +63,7 @@ Client → API Gateway → AWS Lambda → DynamoDB
 
 ---
 
-## 🏗️ Architecture Details
+##  Architecture Details
 
 - **DynamoDB**: table `olympus_events` (PK: `id`)  
 - **Lambda**: `olympus-read-events`  
@@ -75,7 +75,7 @@ Client → API Gateway → AWS Lambda → DynamoDB
 
 ---
 
-## 🔗 Endpoints
+##  Endpoints
 
 - `GET /events` — list all events (supports `?limit=`)  
 - `GET /event/{id}` — get a single event (e.g., `e3`)  
@@ -83,7 +83,7 @@ Client → API Gateway → AWS Lambda → DynamoDB
 
 ---
 
-## 🌍 Live API
+##  Live API
 
 Base URL:  
 https://cspklka3i3.execute-api.eu-central-1.amazonaws.com
@@ -95,7 +95,7 @@ Available endpoints:
 
 ---
 
-## ⚡ Quick curl test
+##  Quick curl test
 
 ```bash
 # list events
